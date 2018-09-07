@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Coincube</string>
+  <string name="cmd_line">app.exe : app=game/coincube wfi_maximize \"bk.tictactoe::view\"=\"http://server.ca2.cc/image/_std/os/android.jpg?sessid=noauth\" </string>
+  <string name="lib_name"></string>
+</resources>

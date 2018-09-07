@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Flag</string>
+  <string name="cmd_line">app.exe \"https://ca2.cc/image/os/android_hibye.png?sessid=noauth\" : app=app-core/flag full_screen hello_bk=\"https://ca2.cc/image/os/android.jpg?sessid=noauth\"</string>
+  <string name="lib_name"></string>
+</resources>

@@ -1,0 +1,8 @@
+C:\nordroid\time\x86\basis\nord_app_core_verifile.apk.recipe
+C:\nordroid\time\x86\basis\nord_app_core_verifile.apk.recipe.merged
+C:\nordroid\time\x86\basis\nord_app_core_verifile.apk
+C:\nordroid\time\x86\basis\nord_app_core_verifile.lastsuccessfuldeploy
+C:\nordroid\nodeapp\app-core\verifile\x86\basis\FileStringReplace.incremental
+C:\nordroid\time\x86\basis\Package\AndroidManifest.xml
+C:\nordroid\time\x86\basis\Package\project.properties
+C:\nordroid\time\x86\basis\Package\build.xml

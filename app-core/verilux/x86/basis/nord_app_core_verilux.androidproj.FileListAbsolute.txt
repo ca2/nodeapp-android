@@ -1,0 +1,9 @@
+C:\nordroid\time\x86\basis\nord_app_core_verilux.apk.recipe
+C:\nordroid\time\x86\basis\nord_app_core_verilux.apk.recipe.merged
+C:\nordroid\time\x86\basis\Package\nord_app_core_verilux\values\strings.xml
+C:\nordroid\time\x86\basis\nord_app_core_verilux.apk
+C:\nordroid\time\x86\basis\nord_app_core_verilux.lastsuccessfuldeploy
+C:\nordroid\nodeapp\app-core\verilux\x86\basis\FileStringReplace.incremental
+C:\nordroid\time\x86\basis\Package\AndroidManifest.xml
+C:\nordroid\time\x86\basis\Package\project.properties
+C:\nordroid\time\x86\basis\Package\build.xml

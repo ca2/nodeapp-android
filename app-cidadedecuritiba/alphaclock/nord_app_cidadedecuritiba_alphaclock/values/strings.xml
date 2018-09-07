@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">alphaclock</string>
+  <string name="cmd_line">app.exe : app=app-cidadedecuritiba/alphaclock client_only show_flag hello_bk=\"https://ca2.cc/image/_std/os/android.jpg?sessid=noauth\"</string>
+  <string name="lib_name"></string>
+</resources>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{04663ab7-a424-4eda-80e8-1e11f57e60e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{fe805319-06f5-4854-90a1-48910c94f2fa}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="audio_mmsystem_command.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="audio_opensles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="audio_opensles_command.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="audio_opensles_factory_exchange.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="audio_opensles_translation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="audio_opensles_wave_in.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="audio_opensles_wave_out.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="audio_opensles_engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="audio_opensles_factory_exchange.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="audio_opensles_translation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="audio_opensles_wave_out.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="framework.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="audio_opensles_engine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Projection</string>
+  <string name="cmd_line">app.exe : app=app-core/projection wfi_maximize countries=br,ru,us,se,jp br.link=\"http://ca2.cc/br/\" ru.link=\"http://ca2.cc/ru/\" us.link=\"http://ca2.cc/us/\" se.link=\"http://ca2.cc/se/\" jp.link=\"http://ca2.cc/jp/\" projection_bk_alpha=0.33 projection_bk=\"https://server.ca2.cc/image/os/android.jpg?sessid=noauth\" </string>
+  <string name="lib_name"></string>
+</resources>

@@ -1,0 +1,1 @@
+$(AntDependencies)=;$(ApplicationId)=applicationId = "com.ca2.app";$(ConfigurationType)=application;$(AarDependencies)=;$(AarDependenciesSettings)=;$(ApplicationName)=nord_app_cidadedecuritiba_alphaclock;$(AndroidBuildToolsVersion)=19.1.0;$(AndroidAPILevelNumber)=19;$(androidapilevel)=android-19;$(projectname)=nord_app_cidadedecuritiba_alphaclock;

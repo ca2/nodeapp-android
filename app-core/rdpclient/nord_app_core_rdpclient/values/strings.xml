@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">rdpclient</string>
+  <string name="cmd_line">app.exe \"rdp://192.168.0.125\" : app=app-core/rdpclient full_screen client_only</string>
+  <string name="lib_name"></string>
+</resources>

@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="basis|ARM">
+      <Configuration>basis</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="basis|x86">
+      <Configuration>basis</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x86">
+      <Configuration>Release</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <RootNamespace>nord_app_game_tictactoe</RootNamespace>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <ProjectVersion>1.0</ProjectVersion>
+    <ProjectGuid>19841115-1951-0422-1977-98a065770402</ProjectGuid>
+    <_PackagingProjectWithoutNativeComponent>true</_PackagingProjectWithoutNativeComponent>
+    <LaunchActivity Condition="'$(LaunchActivity)' == ''">com.nord_game_tictactoe.nord_game_tictactoe</LaunchActivity>
+  </PropertyGroup>
+  <Import Project="$(AndroidTargetsPath)\Android.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='basis|ARM'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <TargetName>$(RootNamespace)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='basis|x86'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <Import Project="$(AndroidTargetsPath)\Android.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <OutDir>$(SolutionDir)..\..\..\time\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\..\..\time\$(PlatformName)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='basis|x86'">
+    <OutDir>$(SolutionDir)..\..\..\time\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\..\..\time\$(PlatformName)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='basis|ARM'">
+    <OutDir>$(SolutionDir)..\..\..\time\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\..\..\time\$(PlatformName)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <OutDir>$(SolutionDir)..\..\..\time\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\..\..\time\$(PlatformName)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='basis|ARM'">
+    <AntPackage>
+      <AndroidAppLibName />
+    </AntPackage>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='basis|x86'">
+    <AntPackage>
+      <AndroidAppLibName />
+    </AntPackage>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <AntBuildXml Include="build.xml" />
+    <AndroidManifest Include="AndroidManifest.xml">
+      <SubType>Designer</SubType>
+    </AndroidManifest>
+    <Content Include="nord_app_game_tictactoe\drawable\icon.png" />
+    <Content Include="nord_app_game_tictactoe\values\strings.xml" />
+    <Content Include="src\com\ca2\app.java" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\app-core\appseed\audio_decode_spotify\nord_core_audio_decode_spotify.vcxproj" />
+    <ProjectReference Include="..\..\..\app-core\appseed\gcom\nord_gcom.vcxproj" />
+    <ProjectReference Include="..\..\..\app-core\appseed\id3lib\nord_core_id3lib.vcxproj" />
+    <ProjectReference Include="..\..\..\app-core\appseed\multimedia\nord_multimedia.vcxproj" />
+    <ProjectReference Include="..\..\..\app-core\appseed\multimedia_playlist_spotify\nord_core_multimedia_playlist_spotify.vcxproj" />
+    <ProjectReference Include="..\..\..\app-veriwell\appseed\asciimedia\nord_veriwell_asciimedia.vcxproj" />
+    <ProjectReference Include="..\..\..\app-veriwell\appseed\audio_decode_libmpg123\nord_veriwell_audio_decode_libmpg123.vcxproj" />
+    <ProjectReference Include="..\..\..\app-veriwell\appseed\libmpg123\nord_veriwell_libmpg123.vcxproj" />
+    <ProjectReference Include="..\..\..\app-veriwell\appseed\multimedia\nord_veriwell_multimedia.vcxproj" />
+    <ProjectReference Include="..\..\..\app-veriwell\appseed\waven\nord_veriwell_waven.vcxproj" />
+    <ProjectReference Include="..\..\..\app\appseed\ace\nord_ace.vcxproj" />
+    <ProjectReference Include="..\..\..\app\appseed\pcre\nord_pcre.vcxproj" />
+    <ProjectReference Include="..\..\..\app\aura\pcre\nord_aurapcre.vcxproj" />
+    <ProjectReference Include="..\..\..\app\axis\image_jpeg\nord_axis_image_jpeg.vcxproj" />
+    <ProjectReference Include="..\..\..\app\axis\image_png\nord_axis_image_png.vcxproj" />
+    <ProjectReference Include="..\..\..\game\appseed\tictactoe\nord_game_tictactoe.vcxproj" />
+    <ProjectReference Include="..\..\..\app-core\appseed\wndfrm_core\nord_wndfrm_core.vcxproj" />
+    <ProjectReference Include="..\..\..\app\appseed\aqua\nord_aqua.vcxproj" />
+    <ProjectReference Include="..\..\..\app\appseed\aura\nord_aura.vcxproj" />
+    <ProjectReference Include="..\..\..\app\appseed\axis\nord_axis.vcxproj" />
+    <ProjectReference Include="..\..\..\app\appseed\base\nord_base.vcxproj" />
+    <ProjectReference Include="..\..\..\app\appseed\core\nord_core.vcxproj" />
+    <ProjectReference Include="..\..\..\app\appseed\draw2d_cairo\nord_draw2d_cairo.vcxproj" />
+    <ProjectReference Include="..\..\..\app\atom\iconv\nord_iconv.vcxproj" />
+    <ProjectReference Include="..\..\..\app\aura\charguess\nord_auracharguess.vcxproj" />
+    <ProjectReference Include="..\..\..\app\aura\sqlite\nord_aurasqlite.vcxproj" />
+    <ProjectReference Include="..\..\..\app\axis\bzip2\nord_axisbzip2.vcxproj" />
+    <ProjectReference Include="..\..\..\app\axis\cairo\nord_axiscairo.vcxproj" />
+    <ProjectReference Include="..\..\..\app\axis\crypto\nord_axiscrypto.vcxproj" />
+    <ProjectReference Include="..\..\..\app\axis\freeimage\nord_axisfreeimage.vcxproj" />
+    <ProjectReference Include="..\..\..\app\axis\freetype\nord_freetype.vcxproj" />
+    <ProjectReference Include="..\..\..\app\axis\idn\nord_axisidn.vcxproj" />
+    <ProjectReference Include="..\..\..\app\axis\jpeg\nord_axisjpeg.vcxproj" />
+    <ProjectReference Include="..\..\..\app\axis\openssl\nord_axisopenssl.vcxproj" />
+    <ProjectReference Include="..\..\..\app\axis\pixman\nord_axispixman.vcxproj" />
+    <ProjectReference Include="..\..\..\app\axis\png\nord_axispng.vcxproj" />
+    <ProjectReference Include="..\app.activity\app.activity.vcxproj" />
+    <ProjectReference Include="..\app.launcher\app.launcher.vcxproj" />
+    <ProjectReference Include="..\audio_opensles\nord_audio_opensles.vcxproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <AntProjectPropertiesFile Include="project.properties" />
+  </ItemGroup>
+  <Import Project="$(AndroidTargetsPath)\Android.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

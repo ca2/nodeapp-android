@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="basis|ARM">
+      <Configuration>basis</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="stage|ARM">
+      <Configuration>stage</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="basis|x86">
+      <Configuration>basis</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="stage|x86">
+      <Configuration>stage</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <RootNamespace>nord_app_core_hellomultiverse</RootNamespace>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <ProjectVersion>1.0</ProjectVersion>
+    <ProjectGuid>19841115-1951-0422-af6d-98a0656f2704</ProjectGuid>
+    <_PackagingProjectWithoutNativeComponent>true</_PackagingProjectWithoutNativeComponent>
+    <LaunchActivity Condition="'$(LaunchActivity)' == ''">com.nord_app_core_hellomultiverse.nord_app_core_hellomultiverse</LaunchActivity>
+  </PropertyGroup>
+  <Import Project="$(AndroidTargetsPath)\Android.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='basis|ARM'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='stage|ARM'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='basis|x86'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <TargetName>$(ProjectName)</TargetName>
+    <AndroidAPILevel>android-19</AndroidAPILevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='stage|x86'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <Import Project="$(AndroidTargetsPath)\Android.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='stage|x86'">
+    <OutDir>$(SolutionDir)..\..\..\time\$(Platform)\$(Configuration)\$(ProjectName)</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='basis|x86'">
+    <OutDir>$(SolutionDir)..\..\..\time\$(Platform)\$(Configuration)\$(ProjectName)\</OutDir>
+    <IntDir>$(SolutionDir)..\..\..\time\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='stage|ARM'">
+    <OutDir>$(SolutionDir)..\..\..\time\$(Platform)\$(Configuration)\$(ProjectName)</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='basis|ARM'">
+    <OutDir>$(SolutionDir)..\..\..\time\$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='basis|ARM'">
+    <AntPackage>
+      <AndroidAppLibName />
+    </AntPackage>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='basis|x86'">
+    <AntPackage>
+      <AndroidAppLibName />
+    </AntPackage>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Content Include="libs\armeabi-v7a\libatomiconv.so" />
+    <Content Include="libs\armeabi-v7a\libaurapcre.so" />
+    <Content Include="libs\armeabi-v7a\libaurasqlite.so" />
+    <Content Include="libs\armeabi-v7a\libaxisbzip2.so" />
+    <Content Include="libs\armeabi-v7a\libaxiscairo.so" />
+    <Content Include="libs\armeabi-v7a\libaxisfreetype.so" />
+    <Content Include="libs\armeabi-v7a\libaxisidn.so" />
+    <Content Include="libs\armeabi-v7a\libaxisjpeg.so" />
+    <Content Include="libs\armeabi-v7a\libaxispixman.so" />
+    <Content Include="libs\armeabi-v7a\libaxispng.so" />
+    <Content Include="libs\x86\libatomiconv.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libs\x86\libaurapcre.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libs\x86\libaurasqlite.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libs\x86\libaxisbzip2.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libs\x86\libaxiscairo.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libs\x86\libaxisfreetype.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libs\x86\libaxisidn.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libs\x86\libaxisjpeg.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libs\x86\libaxispixman.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libs\x86\libaxispng.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libs\x86\libcrypto.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="nord_app_core_hellomultiverse\drawable\icon.png" />
+    <Content Include="nord_app_core_hellomultiverse\values\strings.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <AntBuildXml Include="build.xml">
+      <SubType>Designer</SubType>
+    </AntBuildXml>
+    <AndroidManifest Include="AndroidManifest.xml">
+      <SubType>Designer</SubType>
+    </AndroidManifest>
+    <Content Include="src\com\ca2\app.java" />
+  </ItemGroup>
+  <ItemGroup>
+    <AntProjectPropertiesFile Include="project.properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\app-core\appseed\gcom\nord_gcom.vcxproj" />
+    <ProjectReference Include="..\..\..\app-core\appseed\hellomultiverse\nord_core_hellomultiverse.vcxproj" />
+    <ProjectReference Include="..\..\..\app-core\appseed\wndfrm_core\nord_wndfrm_core.vcxproj" />
+    <ProjectReference Include="..\..\..\app\appseed\ace\nord_ace.vcxproj" />
+    <ProjectReference Include="..\..\..\app\appseed\aqua\nord_aqua.vcxproj" />
+    <ProjectReference Include="..\..\..\app\appseed\aura\nord_aura.vcxproj" />
+    <ProjectReference Include="..\..\..\app\appseed\axis\nord_axis.vcxproj" />
+    <ProjectReference Include="..\..\..\app\appseed\base\nord_base.vcxproj" />
+    <ProjectReference Include="..\..\..\app\appseed\core\nord_core.vcxproj" />
+    <ProjectReference Include="..\..\..\app\appseed\draw2d_cairo\nord_draw2d_cairo.vcxproj" />
+    <ProjectReference Include="..\..\..\app\appseed\sphere\nord_sphere.vcxproj" />
+    <ProjectReference Include="..\..\..\nodeapp\appseed\app.activity\app.activity.vcxproj" />
+    <ProjectReference Include="..\..\..\nodeapp\appseed\app.launcher\app.launcher.vcxproj" />
+  </ItemGroup>
+  <Import Project="$(AndroidTargetsPath)\Android.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

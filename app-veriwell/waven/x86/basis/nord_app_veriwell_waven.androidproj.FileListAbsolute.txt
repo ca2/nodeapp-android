@@ -1,0 +1,13 @@
+C:\nordroid\time\x86\basis\nord_app_veriwell_waven\nord_app_veriwell_waven.apk.recipe
+C:\nordroid\time\x86\basis\nord_app_veriwell_waven\nord_app_veriwell_waven.apk.recipe.merged
+C:\nordroid\time\x86\basis\nord_app_veriwell_waven\nord_app_veriwell_waven.apk
+C:\nordroid\time\x86\basis\nord_app_veriwell_waven\nord_app_veriwell_waven.lastsuccessfuldeploy
+C:\nordroid\nodeapp\app-veriwell\waven\x86\basis\FileStringReplace.incremental
+C:\nordroid\time\x86\basis\nord_app_veriwell_waven\Package\libs\x86\libapp_veriwell_waven.so
+C:\nordroid\time\x86\basis\nord_app_veriwell_waven\Package\libs\x86\libaudio_opensles.so
+C:\nordroid\time\x86\basis\nord_app_veriwell_waven\Package\nord_app_veriwell_waven\drawable\icon.png
+C:\nordroid\time\x86\basis\nord_app_veriwell_waven\Package\nord_app_veriwell_waven\values\strings.xml
+C:\nordroid\time\x86\basis\nord_app_veriwell_waven\Package\src\com\ca2\app.java
+C:\nordroid\time\x86\basis\nord_app_veriwell_waven\Package\AndroidManifest.xml
+C:\nordroid\time\x86\basis\nord_app_veriwell_waven\Package\project.properties
+C:\nordroid\time\x86\basis\nord_app_veriwell_waven\Package\build.xml

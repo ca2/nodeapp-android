@@ -1,0 +1,14 @@
+C:\nordroid\nodeapp\app-core\projection\x86\basis\FileStringReplace.incremental
+C:\nordroid\time\x86\basis\nord_app_core_projection.apk.recipe
+C:\nordroid\time\x86\basis\nord_app_core_projection.apk.recipe.merged
+C:\nordroid\time\x86\basis\Package\libs\x86\libapp_core_projection.so
+C:\nordroid\time\x86\basis\Package\libs\x86\libwndfrm_core.so
+C:\nordroid\time\x86\basis\Package\libs\x86\libaxis.so
+C:\nordroid\time\x86\basis\Package\libs\x86\libbase.so
+C:\nordroid\time\x86\basis\Package\libs\x86\libcore.so
+C:\nordroid\time\x86\basis\Package\libs\x86\libdraw2d_cairo.so
+C:\nordroid\time\x86\basis\Package\libs\x86\liblauncher.so
+C:\nordroid\time\x86\basis\Package\nord_app_core_projection\drawable\icon.png
+C:\nordroid\time\x86\basis\Package\nord_app_core_projection\values\strings.xml
+C:\nordroid\time\x86\basis\nord_app_core_projection.apk
+C:\nordroid\time\x86\basis\nord_app_core_projection.lastsuccessfuldeploy

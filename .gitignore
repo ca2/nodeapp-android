@@ -1,0 +1,12 @@
+**/.vs
+**/.DS_Store
+**/.workspace
+.DS_Store
+._.DS_Store
+*.suo
+*.ipch
+browse.vc.db
+solution.vc.db*
+*.recipe
+*.so
+*.a

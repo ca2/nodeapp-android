@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Changes made to Package Name should also be reflected in the Debugging - Package Name property, in the Property Pages -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.ca2.$(ApplicationName)"
+        android:versionCode="1"
+        android:versionName="1.0">
+
+  <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="19"/>
+
+  <uses-permission android:name="android.permission.INTERNET"/>
+
+  <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+                   
+  <application android:icon="@drawable/icon" android:label="@string/app_name" android:hasCode="true" android:debuggable="true">
+
+    <activity android:name="com.ca2.app" android:label="@string/app_name">
+
+      <intent-filter>
+
+        <action android:name="android.intent.action.MAIN" />
+        
+        <category android:name="android.intent.category.LAUNCHER" />
+    
+      </intent-filter>
+    
+    </activity>
+    
+    <meta-data android:name="project_name" android:value="$(projectname)" />
+  
+    <meta-data android:name="command_line" android:value="@string/cmd_line" />
+
+    <meta-data android:name="library_name" android:value="@string/lib_name" />
+
+</application>
+
+</manifest>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='basis|x86'">
+    <LaunchActivity>com.ca2.app</LaunchActivity>
+    <DebuggerFlavor>AndroidDebugger</DebuggerFlavor>
+    <AndroidDeviceID>169.254.138.177:5555;VS Emulator 7-inch KitKat (4.4) XHDPI Tablet</AndroidDeviceID>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">verilux</string>
+  <string name="cmd_line">app.exe : app=app-core/verilux client_only hellomultiverse=\"Hello Multiverse!!\"</string>
+  <string name="lib_name"></string>
+</resources>
