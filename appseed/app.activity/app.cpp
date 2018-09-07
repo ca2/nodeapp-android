@@ -19,6 +19,8 @@ PFN_mouse mouse_move = NULL;
 
 PFN_mouse l_button_up = NULL;
 
+PFN_on_size on_size = NULL;
+
 node_data_exchange g_nodedataexchange;
 
 PFN_key key_down = NULL;
@@ -122,6 +124,17 @@ void start(int iScreenWidth, int iScreenHeight, const char * pszCommandLine, con
       {
 
          LOGE("Fatal: undefined symbol \"android_key_down\" from libaura.so");
+
+         exit(1);
+
+      }
+
+      on_size = (PFN_on_size)dlsym(handle, "android_on_size");
+
+      if (!on_size)
+      {
+
+         LOGE("Fatal: undefined symbol \"android_on_size\" from libaura.so");
 
          exit(1);
 
@@ -236,13 +249,16 @@ const char * jstrdup(JNIEnv * env, jstring jstr)
 
 }
 
+
 extern "C"
 JNIEXPORT void JNICALL Java_com_ca2_app_end(JNIEnv * env, jobject  obj)
 {
 
    if (g_pfnEnd)
    {
+
       (*g_pfnEnd)();
+
    }
 
 }
@@ -251,6 +267,8 @@ JNIEXPORT void JNICALL Java_com_ca2_app_end(JNIEnv * env, jobject  obj)
 extern "C"
 JNIEXPORT void JNICALL Java_com_ca2_app_configureApp(JNIEnv * env, jobject  obj, jstring strCommandLine, jstring strCacheDir, jint iScreenW, jint iScreenH)
 {
+
+   set_view_initialized(0);
 
    g_pszCommandLine = jstrdup(env, strCommandLine);
 

@@ -286,6 +286,10 @@ class view extends EditText implements View.OnKeyListener {
    private static native void renderImpact(Bitmap bitmap, long time_ms, os_data_exchange dataexchange);
 
    private static native void lButtonDown(float x, float y);
+   						private static native void oNsIzE(float xScreen, float yScreen, float xBitmap, float yBitmap);
+
+
+
 
    private static native void mouseMove(float x, float y);
 
@@ -352,7 +356,13 @@ class view extends EditText implements View.OnKeyListener {
 
       m_iScreenH = size.y;
 
-      m_bitmap = Bitmap.createBitmap(m_iScreenW, m_iScreenH - 66, Bitmap.Config.ARGB_8888);
+	  int xBitmap = m_iScreenW;
+
+	  int yBitmap = m_iScreenH - 66;
+
+      m_bitmap = Bitmap.createBitmap(xBitmap, yBitmap, Bitmap.Config.ARGB_8888);
+
+	  oNsIzE(m_iScreenW, m_iScreenH, xBitmap, yBitmap);
 
       m_lStartTime = System.currentTimeMillis();
 

@@ -3,7 +3,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='basis|x86'">
     <LaunchActivity>com.ca2.app</LaunchActivity>
     <DebuggerFlavor>AndroidDebugger</DebuggerFlavor>
-    <AndroidDeviceID>169.254.109.177:5555;VS Emulator 5-inch KitKat (4.4) XXHDPI Phone</AndroidDeviceID>
+    <AndroidDeviceID>169.254.138.177:5555;VS Emulator 5-inch KitKat (4.4) XXHDPI Phone</AndroidDeviceID>
     <DebuggerType>NativeOnly</DebuggerType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='basis|ARM'">

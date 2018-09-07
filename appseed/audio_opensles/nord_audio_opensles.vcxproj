@@ -116,7 +116,7 @@
       </ForcedIncludeFiles>
     </ClCompile>
     <Link>
-      <LibraryDependencies>multimedia;base;axis;aura;$(StlLibraryName);android;OpenSLES;m</LibraryDependencies>
+      <LibraryDependencies>multimedia;core;base;axis;aura;$(StlLibraryName);android;OpenSLES;m</LibraryDependencies>
       <AdditionalLibraryDirectories>$(OutDir);$(SolutionDir)..\..\..\nodeapp\thirdparty\library\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories);$(OutDir);$(SolutionDir)../../../nodeapp/thirdparty/library/$(PlatformName)/;$(VS_NdkRoot)\platforms\$(AndroidAPILevel)\arch-x86\usr\lib;$(ToolchainPrebuiltPath)\lib\gcc\i686-linux-android\$(ToolchainVersion);$(StlLibraryPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -141,7 +141,7 @@
     </Link>
     <Link>
       <AdditionalLibraryDirectories>$(OutDir);$(SolutionDir)..\..\..\nodeapp\thirdparty\library\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories);$(OutDir);$(SolutionDir)../../../nodeapp/thirdparty/library/$(PlatformName)/;$(VS_NdkRoot)\platforms\$(AndroidAPILevel)\arch-arm\usr\lib;$(ToolchainPrebuiltPath)\lib\gcc\$(ToolchainName)\$(ToolchainVersion)\armv7-a;$(StlLibraryPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <LibraryDependencies>multimedia;base;axis;aura;$(StlLibraryName);android;OpenSLES;m</LibraryDependencies>
+      <LibraryDependencies>multimedia;core;base;axis;aura;$(StlLibraryName);android;OpenSLES;m</LibraryDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='stage|x86'">
@@ -163,7 +163,7 @@
       <AdditionalOptions>-Wno-attributes -Wno-sign-compare -Wno-comment -Wno-strict-overflow -Wno-unused-local-typedefs -Wno-unknown-pragmas -Wno-unused-function -Wno-unused-but-set-variable -Wno-unused-variable -Wno-unused-value -Wno-reorder </AdditionalOptions>
     </ClCompile>
     <Link>
-      <LibraryDependencies>multimedia;base;axis;aura;$(StlLibraryName);android;OpenSLES;m</LibraryDependencies>
+      <LibraryDependencies>multimedia;core;base;axis;aura;$(StlLibraryName);android;OpenSLES;m</LibraryDependencies>
       <AdditionalLibraryDirectories>$(OutDir);$(SolutionDir)..\..\..\nodeapp\thirdparty\library\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories);$(OutDir);$(SolutionDir)../../../nodeapp/thirdparty/library/$(PlatformName)/;$(VS_NdkRoot)\platforms\$(AndroidAPILevel)\arch-x86\usr\lib;$(ToolchainPrebuiltPath)\lib\gcc\i686-linux-android\$(ToolchainVersion);$(StlLibraryPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -187,7 +187,7 @@
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
-      <LibraryDependencies>multimedia;base;axis;aura;$(StlLibraryName);android;OpenSLES;m</LibraryDependencies>
+      <LibraryDependencies>multimedia;core;base;axis;aura;$(StlLibraryName);android;OpenSLES;m</LibraryDependencies>
       <AdditionalLibraryDirectories>$(OutDir);$(SolutionDir)..\..\..\nodeapp\thirdparty\library\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories);$(OutDir);$(SolutionDir)../../../nodeapp/thirdparty/library/$(PlatformName)/;$(VS_NdkRoot)\platforms\$(AndroidAPILevel)\arch-arm\usr\lib;$(ToolchainPrebuiltPath)\lib\gcc\$(ToolchainName)\$(ToolchainVersion)\armv7-a;$(StlLibraryPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>

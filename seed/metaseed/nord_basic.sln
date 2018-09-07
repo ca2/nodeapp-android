@@ -158,6 +158,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sphere", "..\..\..\app\apps
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tesseract", "..\..\..\app-core\appseed\tesseract\nord_tesseract.vcxproj", "{F1616539-19C9-48FF-831A-FC7B2C0525A8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{80499837-2589-411A-BA75-5A6EE85F7CD1} = {80499837-2589-411A-BA75-5A6EE85F7CD1}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rdpsnd-client-audio_decode", "..\..\..\app-core\appseed\rdpsnd-client-audio_decode\nord_rdpsnd-client-audio_decode.vcxproj", "{295096EB-FEEF-4866-8AAD-DC3B3B4EE98A}"
 	ProjectSection(ProjectDependencies) = postProject

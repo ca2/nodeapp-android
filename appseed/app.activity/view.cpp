@@ -31,45 +31,63 @@ void start(int iScreenWidth, int iScreenHeight, const char * pszCommandLine, con
 
 typedef int32_t  Fixed;
 
-
-
 extern "C"
 JNIEXPORT void JNICALL Java_com_ca2_view_renderImpact(JNIEnv * env, jobject  obj, jobject bitmap, jlong  time_ms, jobject dataexchange)
 {
 
    AndroidBitmapInfo  info;
-   void*              pixels;
-   int                ret;
-   static int         init;
 
-   if (!init)
+   void*              pixels;
+
+   int                ret;
+
+   if (!is_view_initialized())
    {
-      init = 1;
+
       start(g_iScreenW, g_iScreenH, g_pszCommandLine, g_pszCacheDir);
+
       //init_tables();
       //stats_init(&stats);
    }
 
    if ((ret = AndroidBitmap_getInfo(env, bitmap, &info)) < 0)
    {
+
       LOGE("AndroidBitmap_getInfo() failed ! error=%d", ret);
+
       return;
+
    }
 
    if (info.format != ANDROID_BITMAP_FORMAT_RGBA_8888)
    {
+
       LOGE("Bitmap format is not RGB_565 !");
+
       return;
+
    }
 
    if ((ret = AndroidBitmap_lockPixels(env, bitmap, &pixels)) < 0)
    {
+
       LOGE("AndroidBitmap_lockPixels() failed ! error=%d", ret);
+
+   }
+
+   if (!is_view_initialized())
+   {
+
+      set_view_initialized(1);
+
+      on_size(g_iScreenW, g_iScreenH, info.width, info.height);
+
    }
 
    //stats_startFrame(&stats);
 
    /* Now fill the values with a nice little plasma */
+
    try
    {
 
@@ -287,6 +305,22 @@ JNIEXPORT void JNICALL Java_com_ca2_view_lButtonDown(JNIEnv * env, jobject  obj,
 
 }
 
+// follow the master, intelligently... or go through that shortcut... take the pill you want... yes, I caught you....
+// for example, when they say choose a color of your preference... don't get so stuck...
+
+extern "C"
+JNIEXPORT void JNICALL Java_com_ca2_view_oNsIzE(JNIEnv * env, jobject  obj, jfloat xScreen, jfloat yScreen, jfloat xBitmap, jfloat yBitmap)
+{
+
+   if (on_size != NULL)
+   {
+
+      on_size(xScreen, yScreen, xBitmap, yBitmap);
+
+   }
+
+}
+
 
 extern "C"
 JNIEXPORT void JNICALL Java_com_ca2_view_mouseMove(JNIEnv * env, jobject  obj, jfloat x, jfloat y)
@@ -367,4 +401,25 @@ JNIEXPORT void JNICALL Java_com_ca2_view_wallpaperResponse(JNIEnv * env, jobject
    env->ReleaseStringChars(bytes, (jchar *)utf16);
 
 }
+
+
+static int g_iViewInitialized = 0;
+
+
+void set_view_initialized(int i)
+{
+
+   g_iViewInitialized = i;
+
+}
+
+
+int is_view_initialized()
+{
+
+   return g_iViewInitialized;
+
+}
+
+
 
