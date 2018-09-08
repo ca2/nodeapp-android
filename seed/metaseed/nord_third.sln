@@ -44,6 +44,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axispixman", "..\..\..\thir
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aurasqlite", "..\..\..\third\appseed\sqlite\nord_aurasqlite.vcxproj", "{FCFE40C7-EEE9-43BE-8BA2-61CDEFD6B4BD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axispango", "..\..\..\third\appseed\pango\nord_axispango.vcxproj", "{93F1210E-46D3-423D-8D0E-39AAF60CB883}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		basis|ARM = basis|ARM
@@ -212,6 +214,18 @@ Global
 		{FCFE40C7-EEE9-43BE-8BA2-61CDEFD6B4BD}.stage|x64.ActiveCfg = stage|x86
 		{FCFE40C7-EEE9-43BE-8BA2-61CDEFD6B4BD}.stage|x86.ActiveCfg = stage|x86
 		{FCFE40C7-EEE9-43BE-8BA2-61CDEFD6B4BD}.stage|x86.Build.0 = stage|x86
+		{93F1210E-46D3-423D-8D0E-39AAF60CB883}.basis|ARM.ActiveCfg = basis|ARM
+		{93F1210E-46D3-423D-8D0E-39AAF60CB883}.basis|ARM.Build.0 = basis|ARM
+		{93F1210E-46D3-423D-8D0E-39AAF60CB883}.basis|ARM64.ActiveCfg = basis|x86
+		{93F1210E-46D3-423D-8D0E-39AAF60CB883}.basis|x64.ActiveCfg = basis|x86
+		{93F1210E-46D3-423D-8D0E-39AAF60CB883}.basis|x86.ActiveCfg = basis|x86
+		{93F1210E-46D3-423D-8D0E-39AAF60CB883}.basis|x86.Build.0 = basis|x86
+		{93F1210E-46D3-423D-8D0E-39AAF60CB883}.stage|ARM.ActiveCfg = stage|ARM
+		{93F1210E-46D3-423D-8D0E-39AAF60CB883}.stage|ARM.Build.0 = stage|ARM
+		{93F1210E-46D3-423D-8D0E-39AAF60CB883}.stage|ARM64.ActiveCfg = stage|x86
+		{93F1210E-46D3-423D-8D0E-39AAF60CB883}.stage|x64.ActiveCfg = stage|x86
+		{93F1210E-46D3-423D-8D0E-39AAF60CB883}.stage|x86.ActiveCfg = stage|x86
+		{93F1210E-46D3-423D-8D0E-39AAF60CB883}.stage|x86.Build.0 = stage|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
