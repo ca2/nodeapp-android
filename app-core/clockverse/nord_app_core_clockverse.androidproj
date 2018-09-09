@@ -109,6 +109,9 @@
     <Content Include="src\com\ca2\app.java" />
   </ItemGroup>
   <ItemGroup>
+    <AntProjectPropertiesFile Include="project.properties" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\..\app-cidadedecuritiba\appseed\alphaclock\nord_cidadedecuritiba_alphaclock.vcxproj" />
     <ProjectReference Include="..\..\..\app-core\appseed\audio_decode_wave\nord_audio_decode_wave.vcxproj" />
     <ProjectReference Include="..\..\..\app-core\appseed\clockverse\nord_core_clockverse.vcxproj" />
@@ -118,7 +121,6 @@
     <ProjectReference Include="..\..\..\app-core\appseed\id3lib\nord_core_id3lib.vcxproj" />
     <ProjectReference Include="..\..\..\app-core\appseed\multimedia\nord_multimedia.vcxproj" />
     <ProjectReference Include="..\..\..\app-core\appseed\tesseract\nord_tesseract.vcxproj" />
-    <ProjectReference Include="..\..\..\app-core\appseed\wndfrm_core\nord_wndfrm_core.vcxproj" />
     <ProjectReference Include="..\..\..\app-veriwell\appseed\audio_decode_libmpg123\nord_veriwell_audio_decode_libmpg123.vcxproj" />
     <ProjectReference Include="..\..\..\app\appseed\ace\nord_ace.vcxproj" />
     <ProjectReference Include="..\..\..\app\appseed\aqua\nord_aqua.vcxproj" />
@@ -127,14 +129,11 @@
     <ProjectReference Include="..\..\..\app\appseed\base\nord_base.vcxproj" />
     <ProjectReference Include="..\..\..\app\appseed\core\nord_core.vcxproj" />
     <ProjectReference Include="..\..\..\app\appseed\draw2d_cairo\nord_draw2d_cairo.vcxproj" />
-    <ProjectReference Include="..\..\..\app\appseed\freeimage\nord_axisfreeimage.vcxproj" />
     <ProjectReference Include="..\..\..\app\appseed\sphere\nord_sphere.vcxproj" />
+    <ProjectReference Include="..\..\..\app\appseed\wndfrm_core\nord_wndfrm_core.vcxproj" />
     <ProjectReference Include="..\..\appseed\app.activity\app.activity.vcxproj" />
     <ProjectReference Include="..\..\appseed\app.launcher\app.launcher.vcxproj" />
     <ProjectReference Include="..\..\appseed\audio_opensles\nord_audio_opensles.vcxproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <AntProjectPropertiesFile Include="project.properties" />
   </ItemGroup>
   <Import Project="$(AndroidTargetsPath)\Android.targets" />
   <ImportGroup Label="ExtensionTargets" />

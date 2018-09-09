@@ -237,8 +237,8 @@ namespace multimedia
          int32_t iBufferCount;
          int32_t iBufferSampleCount;
 
-         iBufferCount = 2;
-         int period_size = 2048;
+         iBufferCount = 4;
+         int period_size = 4096;
          ASSERT(engineObject == NULL);
 
          ASSERT(m_estate == state_initial);
@@ -739,6 +739,8 @@ end_openaudio:
             goto finalize;
 
          }
+
+         //m_pprebuffer->read_buffer(wave_out_get_buffer_data(iBuffer), wave_out_get_buffer_size(), iBuffer);
 
 
          (*bqPlayerBufferQueue)->Enqueue(bqPlayerBufferQueue, wave_out_get_buffer_data(iBuffer), wave_out_get_buffer_size());

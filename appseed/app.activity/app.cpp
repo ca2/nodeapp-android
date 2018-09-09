@@ -53,9 +53,19 @@ void * load_lib(const char * l)
 
 PFN_native_activity_android_end g_pfnEnd = NULL;
 
+static bool g_bAppStarted = false;
 
 void start(int iScreenWidth, int iScreenHeight, const char * pszCommandLine, const char * pszCacheDir)
 {
+
+   if (g_bAppStarted)
+   {
+
+      return;
+
+   }
+
+   g_bAppStarted = true;
 
    LOGI("start(%d, %d)", iScreenWidth, iScreenHeight);
 
@@ -254,12 +264,12 @@ extern "C"
 JNIEXPORT void JNICALL Java_com_ca2_app_end(JNIEnv * env, jobject  obj)
 {
 
-   if (g_pfnEnd)
-   {
+   //if (g_pfnEnd)
+   //{
 
-      (*g_pfnEnd)();
+   //   (*g_pfnEnd)();
 
-   }
+   //}
 
 }
 
