@@ -41,7 +41,7 @@ namespace multimedia
 
          int m_iBufferCount;
          int m_iPlayBuffer;
-         wave_out(sp(::base::application) papp);
+         wave_out(::aura::application * papp);
          virtual ~wave_out();
 
 

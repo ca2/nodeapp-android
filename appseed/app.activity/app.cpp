@@ -27,6 +27,8 @@ PFN_key key_down = NULL;
 
 PFN_key key_up = NULL;
 
+PFN_audioParameters audio_parameters = NULL;
+
 PFN_text on_text = NULL;
 
 void * load_lib(const char * l)
@@ -55,21 +57,11 @@ PFN_native_activity_android_end g_pfnEnd = NULL;
 
 static bool g_bAppStarted = false;
 
-void start(int iScreenWidth, int iScreenHeight, const char * pszCommandLine, const char * pszCacheDir)
+PFN_native_activity_android_start main = NULL;
+
+
+void dynamic_link()
 {
-
-   if (g_bAppStarted)
-   {
-
-      return;
-
-   }
-
-   g_bAppStarted = true;
-
-   LOGI("start(%d, %d)", iScreenWidth, iScreenHeight);
-
-   PFN_native_activity_android_start main = NULL;
 
    {
 
@@ -139,6 +131,18 @@ void start(int iScreenWidth, int iScreenHeight, const char * pszCommandLine, con
 
       }
 
+      audio_parameters = (PFN_key)dlsym(handle, "android_audio_parameters");
+
+      if (!audio_parameters)
+      {
+
+         LOGE("Fatal: undefined symbol \"android_audio_parameters\" from libaura.so");
+
+         exit(1);
+
+      }
+
+
       on_size = (PFN_on_size)dlsym(handle, "android_on_size");
 
       if (!on_size)
@@ -162,9 +166,9 @@ void start(int iScreenWidth, int iScreenHeight, const char * pszCommandLine, con
       }
 
 
-      on_text = (PFN_text)dlsym(handle,"android_on_text");
+      on_text = (PFN_text)dlsym(handle, "android_on_text");
 
-      if(!on_text)
+      if (!on_text)
       {
 
          LOGE("Fatal: undefined symbol \"android_on_text\" from libaura.so");
@@ -203,6 +207,22 @@ void start(int iScreenWidth, int iScreenHeight, const char * pszCommandLine, con
       g_pfnEnd = (PFN_native_activity_android_end)dlsym(handle, "native_activity_android_end");
 
    }
+
+}
+
+void start(int iScreenWidth, int iScreenHeight, const char * pszCommandLine, const char * pszCacheDir)
+{
+
+   if (g_bAppStarted)
+   {
+
+      return;
+
+   }
+
+   g_bAppStarted = true;
+
+   LOGI("start(%d, %d)", iScreenWidth, iScreenHeight);
 
    node_data_exchange & nodedataexchange = g_nodedataexchange;
 
@@ -287,5 +307,7 @@ JNIEXPORT void JNICALL Java_com_ca2_app_configureApp(JNIEnv * env, jobject  obj,
    g_iScreenW = iScreenW;
 
    g_iScreenH = iScreenH;
+
+   dynamic_link();
 
 }

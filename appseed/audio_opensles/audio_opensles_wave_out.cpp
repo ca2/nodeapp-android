@@ -1,5 +1,8 @@
 #include "framework.h"
 
+extern int g_iAndroidSampleRate;
+
+extern int g_iAndroidBufferSize;
 
 void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context);
 
@@ -11,7 +14,7 @@ namespace multimedia
    {
 
 
-      wave_out::wave_out(sp(::base::application) papp) :
+      wave_out::wave_out(::aura::application * papp) :
          object(papp),
          ::thread(papp),
          wave_base(papp),
@@ -238,7 +241,7 @@ namespace multimedia
          int32_t iBufferSampleCount;
 
          iBufferCount = 4;
-         int period_size = 4096;
+         int period_size = g_iAndroidBufferSize;
          ASSERT(engineObject == NULL);
 
          ASSERT(m_estate == state_initial);
@@ -254,12 +257,12 @@ namespace multimedia
          SLresult result;
          SLuint32 sr = uiSamplesPerSec;
          SLuint32  channels = uiChannelCount;
-         uint32_t uiBufferSizeLog2;
+         //uint32_t uiBufferSizeLog2;
          uint32_t uiBufferSize;
-         uint32_t uiAnalysisSize;
-         uint32_t uiAllocationSize;
-         uint32_t uiInterestSize;
-         uint32_t uiSkippedSamplesCount;
+         //uint32_t uiAnalysisSize;
+         //uint32_t uiAllocationSize;
+         //uint32_t uiInterestSize;
+         //uint32_t uiSkippedSamplesCount;
          int err;
          if (create() != SL_RESULT_SUCCESS)
             return ::multimedia::result_error;
@@ -390,43 +393,43 @@ namespace multimedia
 
          if(true)
          {
-            uiBufferSizeLog2 = 16;
+            //uiBufferSizeLog2 = 16;
             //uiBufferSize = m_pwaveformat->nChannels * 2 * iBufferSampleCount; // 512 kbytes
             /*while(((double)(buffer_size * 8) / (double)(uiBitsPerSample * uiSamplesPerSec)) > 0.084)
             {
                 buffer_size /= 2;
             }*/
-            uiBufferSize = period_size;
-            iBufferSampleCount = period_size / (m_pwaveformat->nChannels * 2);
-            uiAnalysisSize = 4 * 1 << uiBufferSizeLog2;
-            if(iBufferCount > 0)
-            {
-               uiAllocationSize = iBufferCount * uiAnalysisSize;
-            }
-            else
-            {
-               uiAllocationSize = 8 * uiAnalysisSize;
-            }
-            uiInterestSize = 200;
-            uiSkippedSamplesCount = 2;
+            uiBufferSize = period_size * (m_pwaveformat->nChannels * 2);
+            iBufferSampleCount = period_size;
+            //uiAnalysisSize = 4 * 1 << uiBufferSizeLog2;
+            //if(iBufferCount > 0)
+            //{
+            //   uiAllocationSize = iBufferCount * uiAnalysisSize;
+            //}
+            //else
+            //{
+            //   uiAllocationSize = 8 * uiAnalysisSize;
+            //}
+            //uiInterestSize = 200;
+            //uiSkippedSamplesCount = 2;
          }
          else if(m_pwaveformat->nSamplesPerSec == 22050)
          {
-            uiBufferSizeLog2 = 10;
-            uiBufferSize = 4 * 1 << uiBufferSizeLog2;
-            uiAnalysisSize = 4 * 1 << uiBufferSizeLog2;
-            uiAllocationSize = 4 * uiAnalysisSize;
-            uiInterestSize = 200;
-            uiSkippedSamplesCount = 1;
+            //uiBufferSizeLog2 = 10;
+            //uiBufferSize = 4 * 1 << uiBufferSizeLog2;
+            //uiAnalysisSize = 4 * 1 << uiBufferSizeLog2;
+            //uiAllocationSize = 4 * uiAnalysisSize;
+            //uiInterestSize = 200;
+            //uiSkippedSamplesCount = 1;
          }
          else if(m_pwaveformat->nSamplesPerSec == 11025)
          {
-            uiBufferSizeLog2 = 10;
-            uiBufferSize = 2 * 1 << uiBufferSizeLog2;
-            uiAnalysisSize = 2 * 1 << uiBufferSizeLog2;
-            uiAllocationSize = 4 * uiAnalysisSize;
-            uiInterestSize = 200;
-            uiSkippedSamplesCount = 1;
+            //uiBufferSizeLog2 = 10;
+            //uiBufferSize = 2 * 1 << uiBufferSizeLog2;
+            //uiAnalysisSize = 2 * 1 << uiBufferSizeLog2;
+            //uiAllocationSize = 4 * uiAnalysisSize;
+            //uiInterestSize = 200;
+            //uiSkippedSamplesCount = 1;
          }
 
          wave_out_get_buffer()->PCMOutOpen(this, uiBufferSize, iBufferCount, 128, m_pwaveformat, m_pwaveformat);

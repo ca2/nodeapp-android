@@ -243,6 +243,14 @@ JNIEXPORT void JNICALL Java_com_ca2_view_renderImpact(JNIEnv * env, jobject  obj
 }
 
 extern "C"
+JNIEXPORT void JNICALL Java_com_ca2_view_audioParameters(JNIEnv * env, jobject  obj, jint iSampleRate, jint iBufferSize)
+{
+
+   audio_parameters(iSampleRate, iBufferSize);
+
+}
+
+extern "C"
 JNIEXPORT void JNICALL Java_com_ca2_view_keyDown(JNIEnv * env, jobject  obj, jint keyCode)
 {
 

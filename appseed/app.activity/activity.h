@@ -63,6 +63,13 @@ extern PFN_key key_up;
 
 
 
+typedef void FN_audioParameters(int keyCode, int iUni);
+
+typedef FN_audioParameters * PFN_audioParameters;
+
+extern PFN_audioParameters audio_parameters;
+
+
 
 
 extern int g_iScreenW;

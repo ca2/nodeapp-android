@@ -28,6 +28,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.content.Intent;
 import android.util.Log;
+import android.media.AudioManager;
 
 
 public class app extends Activity
@@ -338,6 +339,7 @@ class view extends EditText implements View.OnKeyListener
 	{
 
         super(context);
+
 
 		m_result = new TakeInfoResult();
 

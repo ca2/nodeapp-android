@@ -3,6 +3,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='basis|x86'">
     <LaunchActivity>com.ca2.app</LaunchActivity>
     <DebuggerFlavor>AndroidDebugger</DebuggerFlavor>
+    <DebuggerType>NativeOnly</DebuggerType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='stage|ARM'">
     <LaunchActivity>com.ca2.app</LaunchActivity>
