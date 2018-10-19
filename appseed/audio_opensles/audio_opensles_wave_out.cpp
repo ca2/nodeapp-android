@@ -54,8 +54,8 @@ namespace multimedia
 
          ::multimedia::audio::wave_out::install_message_routing(pinterface);
 
-         IGUI_MSG_LINK(message_ready, pinterface, this, &wave_out::OnReady);
-         IGUI_MSG_LINK(message_free, pinterface, this, &wave_out::OnFree);
+         //IGUI_MSG_LINK(message_ready, pinterface, this, &wave_out::OnReady);
+         //IGUI_MSG_LINK(message_free, pinterface, this, &wave_out::OnFree);
 
       }
 
@@ -431,13 +431,9 @@ namespace multimedia
 
          wave_out_get_buffer()->PCMOutOpen(this, uiBufferSize, iBufferCount, 128, m_pwaveformat, m_pwaveformat);
 
-         m_pprebuffer->open(this, m_pwaveformat->nChannels, iBufferCount, iBufferSampleCount);
+         m_pprebuffer->open(m_pwaveformat->nChannels, iBufferCount, iBufferSampleCount);
 
          //m_pprebuffer->SetMinL1BufferCount(wave_out_get_buffer()->GetBufferCount());
-
-
-
-
 
          m_estate = state_opened;
 
@@ -515,7 +511,7 @@ end_openaudio:
          if(m_estate != state_playing && m_estate != state_paused)
             return result_error;
 
-         m_eventStopped.ResetEvent();
+         //m_eventStopped.ResetEvent();
 
          m_pprebuffer->stop();
 
@@ -686,48 +682,7 @@ end_openaudio:
       }
 
 
-      void wave_out::wave_out_free(int ibuffer)
-      {
-
-         post_message(message_free, ibuffer);
-
-      }
-
-
-      void wave_out::wave_out_buffer_ready(int iBuffer)
-      {
-
-         post_message(message_ready, iBuffer);
-
-      }
-
-
-
-      void wave_out::OnReady(::message::message * pobj)
-      {
-
-         SCAST_PTR(::message::base, pbase, pobj);
-
-         int iBuffer = pbase->m_wparam;
-
-         opensles_out_buffer_ready(iBuffer);
-
-      }
-
-
-      void wave_out::OnFree(::message::message * pobj)
-      {
-
-         SCAST_PTR(::message::base, pbase, pobj);
-
-         int iBuffer = pbase->m_wparam;
-
-         opensles_out_free(iBuffer);
-
-      }
-
-
-      void wave_out::opensles_out_buffer_ready(int iBuffer)
+      void wave_out::wave_out_filled(int iBuffer)
       {
 
          single_lock sLock(m_pmutex, TRUE);
@@ -736,22 +691,18 @@ end_openaudio:
                && m_estate != audio::wave_out::state_stopping)
          {
 
-            goto finalize;
+            return
 
          }
 
-         //m_pprebuffer->read_buffer(wave_out_get_buffer_data(iBuffer), wave_out_get_buffer_size(), iBuffer);
+         SLresult slresult = (*bqPlayerBufferQueue)->Enqueue(bqPlayerBufferQueue, wave_out_get_buffer_data(iBuffer), wave_out_get_buffer_size());
 
+         if (slresult == SL_RESULT_SUCCESS)
+         {
 
-         (*bqPlayerBufferQueue)->Enqueue(bqPlayerBufferQueue, wave_out_get_buffer_data(iBuffer), wave_out_get_buffer_size());
+            m_iBufferedCount++;
 
-         //output_debug_string("buffer_size"+::str::from((uint_ptr) wave_out_get_buffer_size()));
-
-finalize:
-
-         sLock.unlock();
-
-
+         }
 
       }
 
@@ -873,7 +824,7 @@ finalize:
       }
 
 
-      void wave_out::opensles_out_free(int iBuffer)
+      void wave_out::wave_out_free(int iBuffer)
       {
 
          ::multimedia::audio::wave_out::wave_out_free(iBuffer);

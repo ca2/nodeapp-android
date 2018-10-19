@@ -59,16 +59,16 @@ namespace multimedia
          virtual void * get_os_data();
 
          virtual void wave_out_on_playback_end() override;
-         virtual void wave_out_buffer_ready(index iBuffer) override;
-         virtual void opensles_out_buffer_ready(index iBuffer);
+         virtual void wave_out_filled(index iBuffer) override;
+         //virtual void opensles_out_buffer_ready(index iBuffer);
          virtual void wave_out_free(index iBuffer) override;
-         virtual void opensles_out_free(index iBuffer);
+         //virtual void opensles_out_free(index iBuffer);
 
          virtual bool init_thread() override;
          virtual void term_thread() override;
 
-         DECL_GEN_SIGNAL(OnReady);
-         DECL_GEN_SIGNAL(OnFree);
+         //DECL_GEN_SIGNAL(OnReady);
+         //DECL_GEN_SIGNAL(OnFree);
 
          virtual ::multimedia::e_result wave_out_start(const imedia_position & position);
 
