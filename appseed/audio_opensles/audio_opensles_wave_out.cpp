@@ -691,7 +691,7 @@ end_openaudio:
                && m_estate != audio::wave_out::state_stopping)
          {
 
-            return
+            return;
 
          }
 
@@ -857,7 +857,7 @@ void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context)
 
    //output_debug_string("buffer_index" + ::str::from(s.index % p->m_iBufferCount));
 
-   p->wave_out_out_buffer_done(s.index % p->m_iBufferCount);
+   p->post_message(multimedia::audio::wave_out::message_free, s.index % p->m_iBufferCount);
 
 
 
