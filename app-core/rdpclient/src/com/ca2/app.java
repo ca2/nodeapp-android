@@ -350,7 +350,7 @@ class view extends EditText implements View.OnKeyListener
 
         super(context);
 
-				AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+		AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
 		String frameRate = audioManager.getProperty(AudioManager.PROPERTY_OUTPUT_SAMPLE_RATE);
 		int frameRateInt = Integer.parseInt(frameRate); // Convert to int
 		if (frameRateInt == 0) frameRateInt = -1;// = 44100 // Use a default value if property not found

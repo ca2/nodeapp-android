@@ -38,7 +38,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='basis|x86'" Label="Configuration">
     <UseDebugLibraries>true</UseDebugLibraries>
     <TargetName>$(ProjectName)</TargetName>
-    <AndroidAPILevel>android-19</AndroidAPILevel>
+    <AndroidAPILevel>android-21</AndroidAPILevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='stage|x86'" Label="Configuration">
     <UseDebugLibraries>false</UseDebugLibraries>
@@ -82,8 +82,10 @@
     <Content Include="libs\x86\libaxiscrypto.so" />
     <Content Include="libs\x86\libaxisfreetype.so" />
     <Content Include="libs\x86\libaxisidn.so" />
+    <Content Include="libs\x86\libaxisjpeg.so" />
     <Content Include="libs\x86\libaxisopenssl.so" />
     <Content Include="libs\x86\libaxispixman.so" />
+    <Content Include="libs\x86\libaxispng.so" />
     <Content Include="libs\x86\libbasempg123.so" />
     <Content Include="nord_app_veriwell_verisimplevideo\drawable\icon.png" />
     <Content Include="nord_app_veriwell_verisimplevideo\values\strings.xml">

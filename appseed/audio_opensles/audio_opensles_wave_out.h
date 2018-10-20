@@ -38,9 +38,14 @@ namespace multimedia
 
          bool                    m_bWrite;
          int                     m_iBuffer;
+         int                     m_iBufferCount;
+         int                     m_iPlayBuffer;
 
-         int m_iBufferCount;
-         int m_iPlayBuffer;
+         int64_t                 m_iBufferSize;
+         int64_t                 m_iPos;
+         int64_t                 m_iLastOpenSLESPos;
+
+
          wave_out(::aura::application * papp);
          virtual ~wave_out();
 

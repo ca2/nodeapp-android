@@ -116,7 +116,7 @@
       </ForcedIncludeFiles>
     </ClCompile>
     <Link>
-      <LibraryDependencies>multimedia;core;base;axis;aura;$(StlLibraryName);android;OpenSLES;m</LibraryDependencies>
+      <LibraryDependencies>multimedia;core;base;axis;aura;ace;$(StlLibraryName);android;OpenSLES;m</LibraryDependencies>
       <AdditionalLibraryDirectories>$(OutDir);$(SolutionDir)..\..\..\nodeapp\thirdparty\library\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories);$(OutDir);$(SolutionDir)../../../nodeapp/thirdparty/library/$(PlatformName)/;$(VS_NdkRoot)\platforms\$(AndroidAPILevel)\arch-x86\usr\lib;$(ToolchainPrebuiltPath)\lib\gcc\i686-linux-android\$(ToolchainVersion);$(StlLibraryPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>

@@ -6,6 +6,7 @@ extern int g_iAndroidBufferSize;
 
 void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context);
 
+
 namespace multimedia
 {
 
@@ -20,7 +21,6 @@ namespace multimedia
          wave_base(papp),
          engine(papp),
          ::multimedia::audio::wave_out(papp)
-
       {
 
          m_estate             = state_initial;
@@ -29,7 +29,6 @@ namespace multimedia
          m_mmr                = result_success;
          m_peffect            = NULL;
          m_bWrite             = false;
-
 
          // output mix interfaces
          outputMixObject = NULL;
@@ -40,7 +39,6 @@ namespace multimedia
          bqPlayerVolume = NULL;
          bqPlayerBufferQueue = NULL;
          bqPlayerEffectSend = NULL;
-
 
       }
 
@@ -56,9 +54,6 @@ namespace multimedia
       {
 
          ::multimedia::audio::wave_out::install_message_routing(pinterface);
-
-         //IGUI_MSG_LINK(message_ready, pinterface, this, &wave_out::OnReady);
-         //IGUI_MSG_LINK(message_free, pinterface, this, &wave_out::OnFree);
 
       }
 
@@ -88,152 +83,17 @@ namespace multimedia
       }
 
 
-      //::multimedia::e_result wave_out::wave_out_open(thread * pthreadCallback, int32_t iBufferCount, int32_t iBufferSampleCount)
-      //{
-      //   single_lock sLock(m_pmutex, TRUE);
-      //   if(engineObject != NULL &&
-      //         m_estate != state_initial)
-      //      return result_success;
-      //   m_pthreadCallback = pthreadCallback;
-      //   ::multimedia::e_result mmr;
-      //   ASSERT(engineObject == NULL);
-      //   ASSERT(m_estate == state_initial);
-
-      //   //m_pwaveformat->wFormatTag = WAVE_FORMAT_PCM;
-      //   m_pwaveformat->wFormatTag = 0;
-      //   m_pwaveformat->nChannels = 2;
-      //   m_pwaveformat->nSamplesPerSec = 44100;
-      //   m_pwaveformat->wBitsPerSample = sizeof(multimedia::audio::WAVEBUFFERDATA) * 8;
-      //   m_pwaveformat->nBlockAlign = m_pwaveformat->wBitsPerSample * m_pwaveformat->nChannels / 8;
-      //   m_pwaveformat->nAvgBytesPerSec = m_pwaveformat->nSamplesPerSec * m_pwaveformat->nBlockAlign;
-      //   m_pwaveformat->cbSize = 0;
-
-      //   //if((m_mmr = this->snd_pcm_open(SND_PCM_STREAM_PLAYBACK)) != result_success)
-      //   //{
-
-      //   //   return result_error;
-
-      //   //}
-
-
-
-      //   //uint32_t uiBufferSizeLog2;
-      //   //uint32_t uiBufferSize;
-      //   //uint32_t uiAnalysisSize;
-      //   //uint32_t uiAllocationSize;
-      //   //uint32_t uiInterestSize;
-      //   //uint32_t uiSkippedSamplesCount;
-      //   //uint32_t uiBufferCount = iBufferCount;
-
-      //   //if(m_pwaveformat->nSamplesPerSec == 44100)
-      //   //{
-      //   //   uiBufferSizeLog2 = 16;
-      //   //   uiBufferSize = m_pwaveformat->nChannels * 2 * iBufferSampleCount; // 512 kbytes
-      //   //   uiAnalysisSize = 4 * 1 << uiBufferSizeLog2;
-      //   //   if(iBufferCount > 0)
-      //   //   {
-      //   //      uiAllocationSize = iBufferCount * uiAnalysisSize;
-      //   //   }
-      //   //   else
-      //   //   {
-      //   //      uiAllocationSize = 8 * uiAnalysisSize;
-      //   //   }
-      //   //   uiInterestSize = 200;
-      //   //   uiSkippedSamplesCount = 2;
-      //   //}
-      //   //else if(m_pwaveformat->nSamplesPerSec == 22050)
-      //   //{
-      //   //   uiBufferSizeLog2 = 10;
-      //   //   uiBufferSize = 4 * 1 << uiBufferSizeLog2;
-      //   //   uiAnalysisSize = 4 * 1 << uiBufferSizeLog2;
-      //   //   uiAllocationSize = 4 * uiAnalysisSize;
-      //   //   uiInterestSize = 200;
-      //   //   uiSkippedSamplesCount = 1;
-      //   //}
-      //   //else if(m_pwaveformat->nSamplesPerSec == 11025)
-      //   //{
-      //   //   uiBufferSizeLog2 = 10;
-      //   //   uiBufferSize = 2 * 1 << uiBufferSizeLog2;
-      //   //   uiAnalysisSize = 2 * 1 << uiBufferSizeLog2;
-      //   //   uiAllocationSize = 4 * uiAnalysisSize;
-      //   //   uiInterestSize = 200;
-      //   //   uiSkippedSamplesCount = 1;
-      //   //}
-
-      //   ////uiBufferCount = 1;
-
-      //   //wave_out_get_buffer()->PCMOutOpen(this, uiBufferSize, uiBufferCount, 128, m_pwaveformat, m_pwaveformat);
-
-      //   //m_pprebuffer->open(this, m_pwaveformat->nChannels, uiBufferCount, iBufferSampleCount); // group sample count
-
-      //   //int iFrameSize = (m_pwaveformat->nChannels * m_pwaveformat->wBitsPerSample) / 8;
-
-      //   //int err;
-
-      //   //snd_pcm_sw_params_alloca(&m_pswparams);
-
-      //   ///* get the current m_pswparams */
-      //   //err = snd_pcm_sw_params_current(m_ppcm, m_pswparams);
-
-      //   //if (err < 0)
-      //   //{
-
-      //   //   TRACE("Unable to determine current m_pswparams for playback: %s\n", snd_strerror(err));
-
-      //   //   return result_error;
-
-      //   //}
-
-
-      //   ///* start the transfer when the buffer is almost full: */
-      //   ///* (buffer_size / avail_min) * avail_min */
-      //   //err = snd_pcm_sw_params_set_start_threshold(m_ppcm, m_pswparams, (buffer_size / period_size) * period_size);
-      //   //if (err < 0)
-      //   //{
-
-      //   //   TRACE("Unable to set start threshold mode for playback: %s\n", snd_strerror(err));
-
-      //   //   return result_error;
-
-      //   //}
-
-      //   ///* allow the transfer when at least period_size samples can be processed */
-      //   //err = snd_pcm_sw_params_set_avail_min(m_ppcm, m_pswparams, period_size);
-      //   //if (err < 0)
-      //   //{
-
-      //   //   TRACE("Unable to set avail min for playback: %s\n", snd_strerror(err));
-
-      //   //   return result_error;
-
-      //   //}
-
-      //   ///* write the parameters to the playback device */
-      //   //err = snd_pcm_sw_params(m_ppcm, m_pswparams);
-      //   //if (err < 0)
-      //   //{
-
-      //   //   TRACE("Unable to set sw params for playback: %s\n", snd_strerror(err));
-
-      //   //   return result_error;
-
-      //   //}
-
-      //   m_estate = state_opened;
-      //   return result_success;
-      //}
-
-
-
-
-
       ::multimedia::e_result wave_out::wave_out_open_ex(thread * pthreadCallback, uint32_t uiSamplesPerSec, uint32_t uiChannelCount, uint32_t uiBitsPerSample, ::multimedia::audio::e_purpose epurpose)
       {
 
-         single_lock sLock(m_pmutex, TRUE);
+         synch_lock sl(m_pmutex);
 
-         if(engineObject != NULL && m_estate != state_initial)
+         if (engineObject != NULL && m_estate != state_initial)
+         {
+
             return result_success;
+
+         }
 
          m_pthreadCallback = pthreadCallback;
 
@@ -264,8 +124,13 @@ namespace multimedia
          //uint32_t uiInterestSize;
          //uint32_t uiSkippedSamplesCount;
          int err;
+
          if (create() != SL_RESULT_SUCCESS)
+         {
+
             return ::multimedia::result_error;
+
+         }
 
          // configure audio source
          SLDataLocator_AndroidSimpleBufferQueue loc_bufq =
@@ -273,7 +138,9 @@ namespace multimedia
             SL_DATALOCATOR_ANDROIDSIMPLEBUFFERQUEUE,
             iBufferCount
          };
+
          m_iBufferCount = iBufferCount;
+
          switch (sr)
          {
 
@@ -333,63 +200,118 @@ namespace multimedia
             if (result != SL_RESULT_SUCCESS) goto end_openaudio;
 
             int speakers;
-            if (channels > 1)
-               speakers = SL_SPEAKER_FRONT_LEFT | SL_SPEAKER_FRONT_RIGHT;
-            else speakers = SL_SPEAKER_FRONT_CENTER;
-            SLDataFormat_PCM format_pcm = { SL_DATAFORMAT_PCM,channels, sr,
-                                            SL_PCMSAMPLEFORMAT_FIXED_16, SL_PCMSAMPLEFORMAT_FIXED_16,
-                                            speakers, SL_BYTEORDER_LITTLEENDIAN
-                                          };
 
-            SLDataSource audioSrc = { &loc_bufq, &format_pcm };
+            if (channels > 1)
+            {
+
+               speakers = SL_SPEAKER_FRONT_LEFT | SL_SPEAKER_FRONT_RIGHT;
+
+            }
+            else
+            {
+
+               speakers = SL_SPEAKER_FRONT_CENTER;
+
+            }
+
+            SLDataFormat_PCM format_pcm;
+
+            format_pcm.formatType = SL_DATAFORMAT_PCM;
+            format_pcm.numChannels = channels;
+            format_pcm.samplesPerSec = sr;
+            format_pcm.bitsPerSample = SL_PCMSAMPLEFORMAT_FIXED_16;
+            format_pcm.containerSize = SL_PCMSAMPLEFORMAT_FIXED_16;
+            format_pcm.channelMask = speakers;
+            format_pcm.endianness = SL_BYTEORDER_LITTLEENDIAN;
+
+            SLDataSource audioSrc;
+
+            audioSrc.pLocator = &loc_bufq;
+            audioSrc.pFormat = &format_pcm;
 
             // configure audio sink
-            SLDataLocator_OutputMix loc_outmix = { SL_DATALOCATOR_OUTPUTMIX, outputMixObject };
-            SLDataSink audioSnk = { &loc_outmix, NULL };
+            SLDataLocator_OutputMix loc_outmix;
+
+            loc_outmix.locatorType = SL_DATALOCATOR_OUTPUTMIX;
+            loc_outmix.outputMix = outputMixObject;
+
+            SLDataSink audioSnk;
+
+            audioSnk.pLocator = &loc_outmix;
+            audioSnk.pFormat = NULL;
 
             // create audio player
             const SLInterfaceID ids1[] = { SL_IID_ANDROIDSIMPLEBUFFERQUEUE, SL_IID_VOLUME };
             const SLboolean req1[] = { SL_BOOLEAN_TRUE, SL_BOOLEAN_TRUE };
             result = (*engineEngine)->CreateAudioPlayer(engineEngine,
                      &(bqPlayerObject), &audioSrc, &audioSnk, 2, ids1, req1);
+
             output_debug_string("bqPlayerObject="+::str::from((uint_ptr)bqPlayerObject));
-            //ASSERT(!result);
-            if (result != SL_RESULT_SUCCESS) goto end_openaudio;
+
+            if (result != SL_RESULT_SUCCESS)
+            {
+
+               goto end_openaudio;
+
+            }
 
             // realize the player
             result = (*bqPlayerObject)->Realize(bqPlayerObject, SL_BOOLEAN_FALSE);
             output_debug_string("Realize="+::str::from((uint_ptr)result));
-            //ASSERT(!result);
-            if (result != SL_RESULT_SUCCESS) goto end_openaudio;
+
+            if (result != SL_RESULT_SUCCESS)
+            {
+
+               goto end_openaudio;
+
+            }
 
             // get the play interface
             result = (*bqPlayerObject)->GetInterface(bqPlayerObject, SL_IID_PLAY, &(bqPlayerPlay));
             output_debug_string("bqPlayerPlay=" + ::str::from((uint_ptr) bqPlayerPlay));
-            //ASSERT(!result);
-            if (result != SL_RESULT_SUCCESS) goto end_openaudio;
+
+            if (result != SL_RESULT_SUCCESS)
+            {
+
+               goto end_openaudio;
+
+            }
 
             // get the volume interface
             result = (*bqPlayerObject)->GetInterface(bqPlayerObject, SL_IID_VOLUME, &(bqPlayerVolume));
             output_debug_string("bqPlayerVolume=" + ::str::from((uint_ptr) bqPlayerVolume));
-            //ASSERT(!result);
-            if (result != SL_RESULT_SUCCESS) goto end_openaudio;
+
+            if (result != SL_RESULT_SUCCESS)
+            {
+
+               goto end_openaudio;
+
+            }
 
             // get the buffer queue interface
             result = (*bqPlayerObject)->GetInterface(bqPlayerObject, SL_IID_ANDROIDSIMPLEBUFFERQUEUE,
                      &(bqPlayerBufferQueue));
             ::output_debug_string("bqPlayerBufferQueue=" + ::str::from((uint_ptr) bqPlayerBufferQueue));
-            //ASSERT(!result);
-            if (result != SL_RESULT_SUCCESS) goto end_openaudio;
+
+            if (result != SL_RESULT_SUCCESS)
+            {
+
+               goto end_openaudio;
+
+            }
 
             // register callback on the buffer queue
             result = (*bqPlayerBufferQueue)->RegisterCallback(bqPlayerBufferQueue, bqPlayerCallback, this);
             output_debug_string("bqPlayerCallback=" + ::str::from((uint_ptr)bqPlayerCallback));
-            //ASSERT(!result);
-            if (result != SL_RESULT_SUCCESS) goto end_openaudio;
 
+            if (result != SL_RESULT_SUCCESS)
+            {
+
+               goto end_openaudio;
+
+            }
 
          }
-
 
          if(true)
          {
@@ -400,6 +322,7 @@ namespace multimedia
                 buffer_size /= 2;
             }*/
             uiBufferSize = period_size * (m_pwaveformat->nChannels * 2);
+            m_iBufferSize = uiBufferSize;
             iBufferSampleCount = period_size;
             //uiAnalysisSize = 4 * 1 << uiBufferSizeLog2;
             //if(iBufferCount > 0)
@@ -436,61 +359,75 @@ namespace multimedia
 
          m_pprebuffer->open(m_pwaveformat->nChannels, iBufferCount, iBufferSampleCount);
 
-         //m_pprebuffer->SetMinL1BufferCount(wave_out_get_buffer()->GetBufferCount());
-
          m_estate = state_opened;
 
          m_epurpose = epurpose;
+
 end_openaudio:
+
          if (result == SL_RESULT_SUCCESS)
          {
+
             output_debug_string("wave_out::wave_out_open_ex success");
+
             return ::multimedia::result_success;
+
          }
          else
          {
+
             output_debug_string("wave_out::wave_out_open_ex error");
+
             return ::multimedia::result_error;
+
          }
 
       }
 
 
-
       ::multimedia::e_result wave_out::wave_out_close()
       {
 
-         single_lock sLock(m_pmutex, TRUE);
+         synch_lock sl(m_pmutex);
 
          if(m_estate == state_playing)
          {
+
             wave_out_stop();
+
          }
 
-         if(m_estate != state_opened)
+         if (m_estate != state_opened)
+         {
+
             return result_success;
 
-         ::multimedia::e_result mmr;
+         }
 
+         ::multimedia::e_result mmr;
 
          // destroy buffer queue audio player object, and invalidate all associated interfaces
          if (bqPlayerObject != NULL)
          {
+
             (*bqPlayerObject)->Destroy(bqPlayerObject);
             bqPlayerObject = NULL;
             bqPlayerVolume = NULL;
             bqPlayerPlay = NULL;
             bqPlayerBufferQueue = NULL;
             bqPlayerEffectSend = NULL;
+
          }
 
          // destroy output mix object, and invalidate all associated interfaces
          if (outputMixObject != NULL)
          {
-            (*outputMixObject)->Destroy(outputMixObject);
-            outputMixObject = NULL;
-         }
 
+            (*outputMixObject)->Destroy(outputMixObject);
+
+            outputMixObject = NULL;
+
+         }
 
          destroy();
 
@@ -503,18 +440,17 @@ end_openaudio:
       }
 
 
-
-
-
       ::multimedia::e_result wave_out::wave_out_stop()
       {
 
-         single_lock sLock(m_pmutex, TRUE);
+         synch_lock sl(m_pmutex);
 
-         if(m_estate != state_playing && m_estate != state_paused)
+         if (m_estate != state_playing && m_estate != state_paused)
+         {
+
             return result_error;
 
-         //m_eventStopped.ResetEvent();
+         }
 
          m_pprebuffer->stop();
 
@@ -527,27 +463,26 @@ end_openaudio:
          // returned to the application.
          //m_mmr = translate_alsa(snd_pcm_drain(m_ppcm));
 
-
-         //if(m_mmr == result_success)
-         //{
-
          m_estate = state_opened;
-
-//         }
 
          return m_mmr;
 
       }
 
+
       ::multimedia::e_result wave_out::wave_out_pause()
       {
 
-         single_lock sLock(m_pmutex, TRUE);
+         synch_lock sl(m_pmutex);
 
          ASSERT(m_estate == state_playing);
 
-         if(m_estate != state_playing)
+         if (m_estate != state_playing)
+         {
+
             return result_error;
+
+         }
 
          // waveOutReset
          // The waveOutReset function stops playback on the given
@@ -560,22 +495,29 @@ end_openaudio:
 
          if(m_mmr == result_success)
          {
+
             m_estate = state_paused;
+
          }
 
          return m_mmr;
 
       }
 
+
       ::multimedia::e_result wave_out::wave_out_restart()
       {
 
-         single_lock sLock(m_pmutex, TRUE);
+         synch_lock sl(m_pmutex);
 
          ASSERT(m_estate == state_paused);
 
-         if(m_estate != state_paused)
+         if (m_estate != state_paused)
+         {
+
             return result_error;
+
+         }
 
          // waveOutReset
          // The waveOutReset function stops playback on the given
@@ -588,7 +530,9 @@ end_openaudio:
 
          if(m_mmr == result_success)
          {
+
             m_estate = state_playing;
+
          }
 
          return m_mmr;
@@ -599,24 +543,27 @@ end_openaudio:
       imedia_time wave_out::wave_out_get_position_millis()
       {
 
-         single_lock sLock(m_pmutex, TRUE);
+         synch_lock sl(m_pmutex);
 
-         //if(m_ppcm != NULL)
-         //{
+         SLmillisecond ms = 0;
 
-         //   snd_pcm_sframes_t frames = snd_pcm_avail_update(m_ppcm);
+         SLresult result = (*bqPlayerPlay)->GetPosition(bqPlayerPlay, &ms);
 
-         //   return frames * 1000 / m_pwaveformat->nSamplesPerSec;
+         if (result == SL_RESULT_SUCCESS)
+         {
 
-         //}
-         //else
-         //{
+            if (ms >= m_iLastOpenSLESPos)
+            {
 
-         //   return 0;
+               m_iLastOpenSLESPos = ms;
 
-         //}
+               return m_iLastOpenSLESPos;
 
-         return 0;
+            }
+
+         }
+
+         return (m_iPos * (u64)1000) / ((u64)m_pprebuffer->get_frame_size() * (u64)m_pwaveformat->nSamplesPerSec);
 
       }
 
@@ -624,22 +571,7 @@ end_openaudio:
       imedia_position wave_out::wave_out_get_position()
       {
 
-         single_lock sLock(m_pmutex, TRUE);
-
-         //if(m_ppcm != NULL)
-         //{
-
-         //   snd_pcm_sframes_t frames = snd_pcm_avail_update(m_ppcm);
-
-         //   return frames;
-
-         //}
-         //else
-         {
-
-            return 0;
-
-         }
+         return (wave_out_get_position_millis() * (u64)m_pwaveformat->nSamplesPerSec) / ((u64) 1000);
 
       }
 
@@ -649,37 +581,12 @@ end_openaudio:
 
          ::multimedia::audio::wave_out::wave_out_on_playback_end();
 
-         //wave_out_stop();
-
-         //if(m_pprebuffer->m_pstreameffectOut != NULL)
-         //{
-         // ::multimedia::iaudio::wave_stream_effect * peffect = m_pprebuffer->m_pstreameffectOut;
-         //m_pprebuffer->m_pstreameffectOut = NULL;
-         //delete peffect;
-         //}
-
-         //m_eventStopped.SetEvent();
-
-         //m_pplayer->OnEvent(::multimedia::audio::wave_player::EventPlaybackEnd);
-
       }
 
-
-
-      //snd_pcm_t * wave_out::wave_out_get_safe_PCM()
-      //{
-
-      //   if(this == NULL)
-      //      return NULL;
-
-      //   return m_ppcm;
-
-      //}
 
       void * wave_out::get_os_data()
       {
 
-         //return m_ppcm;
          return NULL;
 
       }
@@ -688,10 +595,9 @@ end_openaudio:
       void wave_out::wave_out_filled(int iBuffer)
       {
 
-         single_lock sLock(m_pmutex, TRUE);
+         synch_lock sl(m_pmutex);
 
-         if(m_estate != audio::wave_out::state_playing
-               && m_estate != audio::wave_out::state_stopping)
+         if(m_estate != audio::wave_out::state_playing && m_estate != audio::wave_out::state_stopping)
          {
 
             return;
@@ -713,46 +619,52 @@ end_openaudio:
       ::multimedia::e_result wave_out::wave_out_start(const imedia_position & position)
       {
 
-         single_lock sLock(m_pmutex, TRUE);
+         synch_lock sl(m_pmutex);
 
-         if(m_estate == state_playing)
+         if (m_estate == state_playing)
+         {
+
             return result_success;
 
-         if(m_estate != state_opened && m_estate != state_stopped)
+         }
+
+         if (m_estate != state_opened && m_estate != state_stopped)
+         {
+
             return result_error;
+
+         }
 
          int err = 0;
 
          output_debug_string("wave_out::wave_out_start");
 
-         //if ((err = snd_pcm_prepare (m_ppcm)) < 0)
-         //{
-
-         //   TRACE ("cannot prepare audio interface for use (%s)\n",snd_strerror (err));
-
-         //   return result_error;
-
-         //}
-
          m_iPlayBuffer = 0;
 
          m_iBufferedCount = 0;
 
-         //m_evBufferFull.ResetEvent();
+         m_iPos = 0;
+
+         m_iLastOpenSLESPos = 0;
 
          m_mmr = ::multimedia::audio::wave_out::wave_out_start(position);
 
-         if(failed(m_mmr))
+         if (failed(m_mmr))
+         {
+
             return m_mmr;
+
+         }
 
          // set the player's state to playing
          SLresult result = (*bqPlayerPlay)->SetPlayState(bqPlayerPlay, SL_PLAYSTATE_PLAYING);
-         //DEBUG_SND("SetPlayState=%d", result);
-         //ASSERT(!result);
 
          if (result != SL_RESULT_SUCCESS)
+         {
+
             return ::multimedia::result_error;
 
+         }
 
          return result_success;
 
@@ -762,7 +674,6 @@ end_openaudio:
       bool wave_out::on_run_step()
       {
 
-//         return ::multimedia::audio::wave_out::on_run_step();
          return false;
 
       }
@@ -770,9 +681,6 @@ end_openaudio:
 
       int wave_out::underrun_recovery(int err)
       {
-
-         //if(verbose)
-         //printf("stream recovery\n");
 
          if(m_pprebuffer->is_eof() || wave_out_get_state() == state_stopping)
          {
@@ -782,43 +690,6 @@ end_openaudio:
          }
          else if (err == -EPIPE)
          {
-
-            //// under-run
-            //err = snd_pcm_prepare(m_ppcm);
-
-            //if (err < 0)
-            //{
-
-            //   TRACE("Can't recovery from underrun, prepare failed: %s\n", snd_strerror(err));
-
-            //}
-            //else if (err == -ESTRPIPE)
-            //{
-
-            //   while ((err = snd_pcm_resume(m_ppcm)) == -EAGAIN)
-            //   {
-
-            //      sleep(1); /* wait until the suspend flag is released */
-
-            //   }
-
-            //   if (err < 0)
-            //   {
-
-            //      err = snd_pcm_prepare(m_ppcm);
-
-            //      if (err < 0)
-            //      {
-
-            //         TRACE("Can't recovery from suspend, prepare failed: %s\n", snd_strerror(err));
-
-            //      }
-
-            //   }
-
-            //}
-
-            //return 0;
 
          }
 
@@ -834,23 +705,18 @@ end_openaudio:
 
       }
 
+
    } // namespace audio_opensles
 
 
 } // namespace multimedia
 
 
-
-
-
-
-
-
 // this callback handler is called every time a buffer finishes playing
-void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context)
+void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void * pcontext)
 {
 
-   multimedia::audio_opensles::wave_out *p = (multimedia::audio_opensles::wave_out *)context;
+   multimedia::audio_opensles::wave_out *p = (multimedia::audio_opensles::wave_out *) pcontext;
 
    SLAndroidSimpleBufferQueueState s;
 
@@ -858,10 +724,11 @@ void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context)
 
    (*bq)->GetState(bq, &s);
 
-   //output_debug_string("buffer_index" + ::str::from(s.index % p->m_iBufferCount));
+   p->m_iPos += p->m_iBufferSize;
 
-   p->post_message(multimedia::audio::wave_out::message_free, s.index % p->m_iBufferCount);
-
-
+   p->post_message(multimedia::audio::wave_out::message_free, (s.index - 1) % p->m_iBufferCount);
 
 }
+
+
+
