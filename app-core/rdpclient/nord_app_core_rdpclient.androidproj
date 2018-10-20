@@ -22,7 +22,7 @@
     <RootNamespace>nord_app_core_rdpclient</RootNamespace>
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <ProjectVersion>1.0</ProjectVersion>
-    <ProjectGuid>19851115-1953-0422-af6d-98a065770402</ProjectGuid>
+    <ProjectGuid>dc22dcc4-52d8-492b-9d5c-1e9813540172</ProjectGuid>
     <_PackagingProjectWithoutNativeComponent>true</_PackagingProjectWithoutNativeComponent>
     <LaunchActivity Condition="'$(LaunchActivity)' == ''">com.nord_app_core_rdpclient.nord_app_core_rdpclient</LaunchActivity>
   </PropertyGroup>

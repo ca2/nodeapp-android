@@ -34,6 +34,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import android.app.WallpaperManager;
+import android.media.AudioManager;
 
 
 public class app extends Activity
@@ -339,6 +340,8 @@ class view extends EditText implements View.OnKeyListener
 
 	private static native void onText(String str);
 
+	private static native void audioParameters(int iSampleRate, int iBufferSize);
+
 	private String DUMMY;
 
 
@@ -346,6 +349,18 @@ class view extends EditText implements View.OnKeyListener
 	{
 
         super(context);
+
+				AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+		String frameRate = audioManager.getProperty(AudioManager.PROPERTY_OUTPUT_SAMPLE_RATE);
+		int frameRateInt = Integer.parseInt(frameRate); // Convert to int
+		if (frameRateInt == 0) frameRateInt = -1;// = 44100 // Use a default value if property not found
+
+		String framesPerBuffer = audioManager.getProperty(AudioManager.PROPERTY_OUTPUT_FRAMES_PER_BUFFER);
+		int framesPerBufferInt = Integer.parseInt(framesPerBuffer); // Convert to int
+		if (framesPerBufferInt == 0) framesPerBufferInt = -1; //= 256; // Use default
+		
+		audioParameters(frameRateInt, framesPerBufferInt);
+
 
 		m_result = new TakeInfoResult();
 
